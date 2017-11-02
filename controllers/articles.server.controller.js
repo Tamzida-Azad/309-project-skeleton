@@ -12,6 +12,7 @@ var _ = require('lodash');
   			});
     } else {
       console.log("api called");
+      
 
       	res.render('./../public/views/article/all.ejs', {
 		user: req.user || null,
