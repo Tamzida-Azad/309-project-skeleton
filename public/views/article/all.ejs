@@ -5,6 +5,7 @@
           <h1>All Articles  </h1> 
        <% console.log(articles) %>
   <% for(var i=0; i<articles.length; i++) { %>
+    <h1> <%= articles[i]._id %> </h1>
     <h1> <%= articles[i].title %> </h1>
     <p>
       <%= articles[i].user%>
