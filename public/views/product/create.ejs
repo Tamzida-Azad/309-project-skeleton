@@ -1,69 +1,55 @@
 <html>
     <head>
-        <tittle>
-        New Products
-        </tittle>
+        <title>New Product</title>
     </head>
     <body>
-        <h1>
-            Create Products
-        </h1>
-        <div>Name:
-        <input type="text" id ="name"/>
-        </div><br>
-        <div>Quantity:
-        <input type="number" id ="quantity"/>
-        </div><br>
-        <div>Description: 
-        <textarea id="content" ></textarea>
-        </div> <br>
-        <div>Price :
-        <input type="number" id ="price"/>
-        </div><br>
-        <button id="submit">Submit</button>
+        <h1>New Product</h1>
+        <div>name:
+        <input type="text" id="name"/>
+        </div>
+        <br>
+        <div>description:
+            <textarea id="description"></textarea>
+            
+        </div>
+        <br>
+         <div>price:
+            <textarea id="price"></textarea>
+            
+        </div>
+        <br>
+         <div>quantity:
+            <textarea id="quantity"></textarea>
+            
+        </div>
+        <br>
+        <button id="submit">SUBMIT</button>
+        
         <script src="/lib/jquery/dist/jquery.min.js"></script>
         <script>
-            var product={name :"" , description : "" , price:null ,quantity:null};
-            
-            $("#name").change(function()
-            {
-                product.name= $("#name").val();
-            
+            var product={name:"", description:"" ,price:"",quantity:""};
+            $("#name").change(function(){
+                product.name=$("#name").val();
             });
-            
-             $("#description").change(function()
-            {
-                product.description= $("#description").val();
-            
+             $("#description").change(function(){
+                product.description=$("#description").val();
             });
-            
-             $("#price").change(function()
-            {
-                product.price= $("#price").val();
-            
+             $("#price").change(function(){
+                product.price=$("#price").val();
             });
-            
-            
-             $("#quantity").change(function()
-            {
-                product.quantity= $("#quantity").val();
-            
+             $("quantity").change(function(){
+                product.quantity=$("#quantity").val();
             });
-
-            
-            $("#submit").click(function(){
-                $.ajax({
-                    method: "POST",
-                    url: "/api/products",
-                    data: product  
-                    
-                }).done(function(response){
-                    console.log(response);
-                });
-                
+             $("#submit").click(function(){
+                 console.log(product);
+              $.ajax({
+                  method:"POST",
+                  url:"/api/products",
+                  data:product
+              }).done(function(response){
+                  console.log(response);
+              });
             });
-            
         </script>
-        </body>
-    
+    </body>
 </html>
