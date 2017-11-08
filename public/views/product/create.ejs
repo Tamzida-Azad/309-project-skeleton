@@ -1,0 +1,69 @@
+<html>
+    <head>
+        <tittle>
+        New Products
+        </tittle>
+    </head>
+    <body>
+        <h1>
+            Create Products
+        </h1>
+        <div>Name:
+        <input type="text" id ="name"/>
+        </div><br>
+        <div>Quantity:
+        <input type="number" id ="quantity"/>
+        </div><br>
+        <div>Description: 
+        <textarea id="content" ></textarea>
+        </div> <br>
+        <div>Price :
+        <input type="number" id ="price"/>
+        </div><br>
+        <button id="submit">Submit</button>
+        <script src="/lib/jquery/dist/jquery.min.js"></script>
+        <script>
+            var product={name :"" , description : "" , price:null ,quantity:null};
+            
+            $("#name").change(function()
+            {
+                product.name= $("#name").val();
+            
+            });
+            
+             $("#description").change(function()
+            {
+                product.description= $("#description").val();
+            
+            });
+            
+             $("#price").change(function()
+            {
+                product.price= $("#price").val();
+            
+            });
+            
+            
+             $("#quantity").change(function()
+            {
+                product.quantity= $("#quantity").val();
+            
+            });
+
+            
+            $("#submit").click(function(){
+                $.ajax({
+                    method: "POST",
+                    url: "/api/products",
+                    data: product  
+                    
+                }).done(function(response){
+                    console.log(response);
+                });
+                
+            });
+            
+        </script>
+        </body>
+    
+</html>
