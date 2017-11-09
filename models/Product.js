@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var ProductSchema = {
 
-  title: {
+  name: {
     type: String,
     default: '',
     trim: true,
@@ -30,20 +30,13 @@ var ProductSchema = {
     required: 'Quantity required'
   },
   
-  content: {
-    type: String,
-    default: '',
-    trim: true,
-    required: 'Content required'
-
-  },
-
+  
   user: {
     type: Schema.ObjectId,
     ref: 'User'
   },
 
-  created: {
+created: {
     type: Date,
     default: Date.now
   }
