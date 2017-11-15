@@ -15,6 +15,7 @@
         <br>
          <div>price:
             <textarea id="price"></textarea>
+            <label style="color:red" id="error" type="text"></label>
             
         </div>
         <br>
@@ -35,14 +36,13 @@
                 product.description=$("#description").val();
             });
              $("#price").change(function(){
-                product.price=$("#price").val();
+              product.price=$("#price").val();
             });
              $("#quantity").change(function(e){
                 product.quantity=$("#quantity").val();
                 console.log(e);
             });
-           $("#error").text(JSON.parse(response.responseText).message);
-           console.log(JSON.parse(response.responseText).message);
+          
              $("#submit").click(function(){
                  console.log(product);
               $.ajax({
