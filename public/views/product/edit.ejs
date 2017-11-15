@@ -27,7 +27,8 @@
         
         <script src="/lib/jquery/dist/jquery.min.js"></script>
         <script>
-            var product={name:"", description:"" ,price:"",quantity:""};
+        var productID= <%- JSON.stringify(request.product._id) %>;
+            var product={};
             $("#name").change(function(){
                 product.name=$("#name").val();
             });
@@ -45,15 +46,17 @@
                  console.log(product);
               $.ajax({
                   method:"PUT",
-                  url:"/api/products/edit"+productID,
-                  
-                  
-                  
+                  url:"/api/products/edit/"+productID,
                   data:product
               }).done(function(response){
                   console.log(response);
-              });
-            });
+                  window.location.replace("/products/"+response._id);
+              }).fail(function(response){
+                   $("#error").text(JSON.parse(response.responseText).message);
+                   console.log(JSON.parse(response.responseText).message);
+                 // window.location.replace("/products/"+response._id);
+                    }); 
+                    });
         </script>
     </body>
 </html>

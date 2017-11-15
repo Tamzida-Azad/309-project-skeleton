@@ -12,7 +12,7 @@ module.exports = function(app){
 	app.route('/products/:productId')
 	.get(products.view);
 
-	app.route('/products/:productId')
+	app.route('/products/edit/:productId')
 	.get(products.edit);
 	
 
